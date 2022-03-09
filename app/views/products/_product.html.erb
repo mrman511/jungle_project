@@ -17,6 +17,19 @@
     <% end %>
   </footer>
 
+  <% if product.quantity == 0 %>
+    <aside class="sold-out quantity">
+      <p> SOLD OUT </p>
+    </aside>
+  <% elsif product.quantity < 5 && product.quantity > 0 %>
+    <aside class="low-stock quantity">
+      <p> LOW STOCK </p>
+    </aside>
+  <% end %>
+
+  
+
+
   <aside class="price">
     <%= humanized_money_with_symbol product.price %>
   </aside>

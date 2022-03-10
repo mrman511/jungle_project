@@ -1,0 +1,7 @@
+<li class="list-group-item">
+<%= image_tag product.image.thumb, alt: product.name %>
+<h4><%= product.name %></h4>
+<p>qty <%= line_item.quantity %>
+<p>price <%= humanized_money_with_symbol (product.price_cents / 100) %> </p>
+<p> total <%= humanized_money_with_symbol (line_item.total_price_cents / 100) %>
+</li>

@@ -8,9 +8,10 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def create
-    @category = category.new(category_params)
+    
+    @category = Category.new(category_params)
 
-    if @product.save
+    if @category.save
       redirect_to [:admin, :categories], notice: 'Category created!'
     else
       render :new
@@ -18,14 +19,15 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def destroy
-    @category = Categories.find params[:id]
+    puts "PARAMASSSSS #{params[:id]}"
+    @category = Category.find(params[:id])
     @category.destroy
     redirect_to [:admin, :categories], notice: 'Category deleted!'
   end
 
   private
 
-  def catagory_params
+  def category_params
     params.require(:category).permit(
       :name
     )

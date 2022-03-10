@@ -1,7 +1,12 @@
 <section class="orders-show">
 
   <header class="page-header">
-    <h1>Order #<%= @order.id %></h1>
+    <h1>Order <%= @order.id %></h1>
+    <ul>
+      <% @order.line_items.each do |line_item| %>
+        <%= render 'line_item', product: line_item.product, line_item: line_item %>
+      <% end %>
+    </ul>
   </header>
 
   <div class="order-summary jumbotron">
